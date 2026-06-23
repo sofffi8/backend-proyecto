@@ -1,5 +1,5 @@
 import { sequelize } from '../config/database.js';
-import UsuarioAdministrador from './usuarioAdmin.js';
+import Administrador from './administrador.js';
 import Usuario from './usuario.js';
 import Domicilio from './domicilio.js';
 import Telefono from './telefono.js';
@@ -33,7 +33,7 @@ DetallesCarrito.belongsTo(Producto, { foreignKey: 'idProducto', as: 'producto' }
 
 // 6. Categoria-Producto (1 a N)
 Categoria.hasMany(Producto, { foreignKey: 'idCategoria', as: 'productos' });
-Producto.belongsTo(Categoria, { foreignKey: 'idCategoria' });
+Producto.belongsTo(Categoria, { foreignKey: 'idCategoria', as: 'categoria'});
 
 // 7. Usuario-Pedido (1 a N)
 Usuario.hasMany(Pedido, { foreignKey: 'idUsuario', as: 'pedidos' });
@@ -53,7 +53,7 @@ Pago.belongsTo(Pedido, { foreignKey: 'idPedido' });
 
 export {
     sequelize,
-    UsuarioAdministrador,
+    Administrador,
     Usuario,
     Domicilio,
     Telefono,

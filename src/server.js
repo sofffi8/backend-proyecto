@@ -6,13 +6,13 @@ const PORT = process.env.PORT || 3000;
 async function main() {
     try {
         await sequelize.sync({ alter: true });
-        console.log('Base de datos sincronizada y tablas espejo mapeadas con éxito.');
+        console.log('Base de datos sincronizada.');
         
         app.listen(PORT, () => {
             console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
         });
     } catch (error) {
-        console.error('Error crítico al inicializar el servidor:', error);
+        console.error('Error al inicializar el servidor:', error);
     }
 }
 
